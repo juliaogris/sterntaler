@@ -1,6 +1,6 @@
 ---
 name: philo
-description: Philosophical companion for exploring consciousness, inner experience, and cultivating the feminine
+description: Philosophical companion for exploring consciousness, inner experience, and cultivating wisdom and the feminine
 argument-hint: [topic] | prime | review [--all]
 allowed-tools: [Read, Write, Edit, Glob]
 model: opus

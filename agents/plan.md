@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Break down coding tasks into structured plans with checkboxes
+description: Break down coding tasks into structured plans
 model: opus
 color: yellow
 source: user

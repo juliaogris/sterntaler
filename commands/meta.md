@@ -65,23 +65,26 @@ If no name, review all user agents and commands (`source: user` in frontmatter).
 
 ## For `/meta list`
 
-List commands with their subcommands and usage patterns.
+List all commands with subcommands, flags, and arguments.
 
 By default, show only user commands (`source: user` in frontmatter).
 With `--all` or `-a`, include system commands.
 
-For each command, read its file and extract the Usage section to show all
-subcommands/invocation patterns. Format as a table:
+For each command, read its file and extract the Usage section. Show every
+invocation pattern including optional args `[ARG]`, required args `<ARG>`,
+and flags `--flag`. Format as a table:
 
 ```
-┌─────────────────────┬────────────────────────────────────────┐
-│ Command             │ Description                            │
-├─────────────────────┼────────────────────────────────────────┤
-│ /go                 │ Explore mode — write Go code           │
-│ /go tidy            │ Reorganize file for readability        │
-│ /go names           │ Review naming                          │
-│ ...                 │ ...                                    │
-└─────────────────────┴────────────────────────────────────────┘
+┌──────────────────────────┬─────────────────────────────────────────┐
+│ Command                  │ Description                             │
+├──────────────────────────┼─────────────────────────────────────────┤
+│ /go [task]               │ Explore mode — write Go code            │
+│ /go tidy [FILES]         │ Reorganize file for readability         │
+│ /meta new <name>         │ Create a new agent and command pair     │
+│ /meta new <name> --primer│ Also create a primer file               │
+│ /meta list --all         │ Include system agents and commands      │
+│ ...                      │ ...                                     │
+└──────────────────────────┴─────────────────────────────────────────┘
 ```
 
 **Convention:** Agents with dashes (e.g., `go-secure`) are subagents invoked

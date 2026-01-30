@@ -74,7 +74,8 @@ Preferred order within a file:
 - Full sentences, start with the name being documented
 - No separate "Returns:" paragraphs
 - Wrap at 79 characters
-- Only for exported symbols (add during polish, not explore)
+- Keep concise — one or two sentences max
+- Add for all types and funcs, including private (during polish, not explore)
 
 ## Reference
 

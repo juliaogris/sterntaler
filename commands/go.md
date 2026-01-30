@@ -119,8 +119,9 @@ Review and add godocs.
 For each file:
 1. Check existing godocs match the code
 2. Flag stale or inaccurate docs
-3. Add docs where missing (exported funcs, types, packages)
+3. Add short docs where missing for ALL types and funcs (including private)
 4. Follow godoc conventions: full sentences, start with name
+5. Keep docs concise — one or two sentences max
 
 Show proposed additions, get approval before editing.
 

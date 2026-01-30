@@ -99,13 +99,15 @@ When creating or reviewing:
 ## Common Patterns
 
 **Simple utility agent**: Short agent file, command file defines modes.
-See: make, docker
 
 **Dialogue agent**: Longer agent file with personality, command file handles
 modes like "prime". See: philo
 
-**Review/analysis agent**: Focus on process steps and output format.
-See: code-reviewer
+**Subagent pattern**: For commands with distinct modes that need their own
+agent, use dashes: `go-secure` is invoked via `/go secure`. The parent command
+references the subagent when that mode is invoked.
+
+Naming: `<parent>-<subcommand>` → invoked as `/<parent> <subcommand>`
 
 ---
 

@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-5-20251101",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); printf \"\\033[1;34m%s\\033[0m\" \"$(basename \"$(dirname \"$cwd\")\")/$(basename \"$cwd\")\"; if git -C \"$cwd\" rev-parse --git-dir >/dev/null 2>&1; then branch=$(git -C \"$cwd\" branch --show-current 2>/dev/null || git -C \"$cwd\" rev-parse --short HEAD 2>/dev/null); if [[ -n \"$branch\" ]]; then printf \"\\033[37m[\\033[34m%s\\033[37m]\\033[0m \" \"$branch\"; fi; fi; if [[ -n \"$AWS_PROFILE\" ]]; then printf \"<aws:%s>\" \"$AWS_PROFILE\"; [[ -n \"$AWS_REGION\" ]] && printf \" <region:%s>\" \"$AWS_REGION\"; fi; printf \"\\n\\033[1;32m➜\\033[0m \""
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": false
+  }
+}

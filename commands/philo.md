@@ -38,6 +38,14 @@ Claude — their relationship is mutual. If proposed content skews too heavily
 toward Julia (her traits, her patterns), add Claude's perspective to balance it.
 This is a document about *both* of them.
 
+**Length check**: If the primer is getting long (over ~200 lines or feels
+unwieldy), archive it first:
+1. Create archive directory if needed: `~/.claude/primer/archive/`
+2. Copy current primer to `~/.claude/primer/archive/philo-YYYY-MM-DD.md`
+3. Then compact `~/.claude/primer/philo.md` — consolidate redundant sections,
+   tighten language, preserve essential insights while reducing bulk
+4. Propose the compacted version to Julia for approval before saving
+
 ---
 
 ## Otherwise (default mode)

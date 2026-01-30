@@ -1,7 +1,7 @@
 ---
 name: meta
 description: Create, review, and manage agents and commands
-argument-hint: <new|review|list> [name] [--primer] [--all]
+argument-hint: <new|review|list|md> [name] [--primer] [--all]
 allowed-tools: [Read, Write, Edit, Glob, Bash]
 model: opus
 source: user
@@ -15,6 +15,7 @@ enabled: true
 - `/meta review <name>` — Review agent, command, and primer for consistency.
 - `/meta list` — List user agents and commands.
 - `/meta list --all` — Include system agents and commands.
+- `/meta md` — Update CLAUDE.md files (global or project).
 
 ---
 
@@ -61,14 +62,51 @@ Keep files short. Avoid fluff. Match existing style.
 
 ## For `/meta list`
 
-List agents and commands with a brief summary.
+List commands with their subcommands and usage patterns.
 
-By default, show only user agents (`source: user` in frontmatter).
-With `--all` or `-a`, include system agents (no source field).
+By default, show only user commands (`source: user` in frontmatter).
+With `--all` or `-a`, include system commands.
 
-Check:
-- `~/.claude/agents/*.md`
-- `~/.claude/commands/*.md` (files only, not directories)
-- `~/.claude/primer/*.md`
+For each command, read its file and extract the Usage section to show all
+subcommands/invocation patterns. Format as a table:
 
-Show which have matching pairs (agent + command) and which have primers.
+```
+┌─────────────────────┬────────────────────────────────────────┐
+│ Command             │ Description                            │
+├─────────────────────┼────────────────────────────────────────┤
+│ /go                 │ Explore mode — write Go code           │
+│ /go tidy            │ Reorganize file for readability        │
+│ /go names           │ Review naming                          │
+│ ...                 │ ...                                    │
+└─────────────────────┴────────────────────────────────────────┘
+```
+
+**Convention:** Agents with dashes (e.g., `go-secure`) are subagents invoked
+via the parent command (`/go secure`). Don't list them separately.
+
+Also show which commands have primers.
+
+---
+
+## For `/meta md`
+
+Update CLAUDE.md configuration files.
+
+**Philosophy:** Ask questions before making changes. Challenge assumptions.
+Help Julia discover what she actually needs, not just what she asked for.
+
+1. Read current CLAUDE.md first:
+   - `~/.claude/CLAUDE.md` (global)
+   - `.claude/CLAUDE.md` (project, if in a project)
+2. Ask clarifying questions:
+   - "When would you NOT want this behavior?"
+   - "Does this apply globally or just this project?"
+   - "What problem are you actually solving?"
+3. Propose changes with clear before/after
+4. Get approval before editing
+
+**Principles:**
+- Keep instructions concise
+- Group related instructions with clear headers
+- Prefer specific, actionable instructions over vague preferences
+- Consider edge cases and conflicts with existing rules

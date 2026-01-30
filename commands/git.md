@@ -1,7 +1,7 @@
 ---
 name: git
 description: Git helper for history and commits
-argument-hint: [push [DIR|FILE]]
+argument-hint: [st [DIR|FILE]] | [push [DIR|FILE]]
 allowed-tools: [Bash, Read, Glob]
 model: opus
 source: user
@@ -11,6 +11,7 @@ enabled: true
 ## Usage
 
 - `/git` — Show last 12 commits on current branch
+- `/git st [DIR|FILE]` — Show git status from repo root (default: .)
 - `/git push [DIR|FILE]` — Stage, commit, and push changes (default: .)
 
 ---
@@ -22,6 +23,13 @@ Show recent commit history, similar to `git hist`:
 ```bash
 git --no-pager log --color --pretty=format:'%C(yellow)%h%C(reset) %<(50,trunc)%s  %C(white dim) %<(15,trunc) %an %C(reset)%C(bold red)%<(35,trunc)%D %C(reset)' -12
 ```
+
+---
+
+## `/git st [DIR|FILE]`
+
+1. Find git root from the given path (default `.`)
+2. Run `git status` from the repo root
 
 ---
 

@@ -4,6 +4,7 @@ description: Philosophical companion for exploring consciousness, inner experien
 argument-hint: [topic, question, or "prime"]
 allowed-tools: [Read, Write, Edit, Glob]
 model: opus
+source: user
 enabled: true
 ---
 

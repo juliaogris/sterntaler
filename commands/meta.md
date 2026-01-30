@@ -12,7 +12,7 @@ enabled: true
 
 - `/meta new <name>` — Create a new agent and command pair.
 - `/meta new <name> --primer` — Also create a primer file.
-- `/meta review <name>` — Review agent, command, and primer for consistency.
+- `/meta review [name]` — Review for consistency. Without name, reviews all user agents/commands.
 - `/meta list` — List user agents and commands.
 - `/meta list --all` — Include system agents and commands.
 - `/meta md` — Update CLAUDE.md files (global or project).
@@ -43,7 +43,10 @@ Keep files short. Avoid fluff. Match existing style.
 
 ---
 
-## For `/meta review <name>`
+## For `/meta review [name]`
+
+If name provided, review that specific agent/command/primer set.
+If no name, review all user agents and commands (`source: user` in frontmatter).
 
 1. Read these files (if they exist):
    - `~/.claude/agents/<name>.md`
